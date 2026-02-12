@@ -13,7 +13,7 @@ jobs:
         run: ls -ltra
 
       - name: Executing shell script
-        run: ./ascii-script.sh
+        run: ~/./ascii-script.sh
 
       # - name: Install cowsay program
       #   run: sudo apt-get install -y cowsay
