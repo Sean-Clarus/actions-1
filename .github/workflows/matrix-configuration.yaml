@@ -16,9 +16,17 @@ jobs:
     #     run: docker run hello-world
   deploy:
     strategy:
+      fail-fast: false
+      max-parallel: 2
       matrix:
         os: [ubuntu-latest, ubuntu-20.04, windows-latest]
         images: [hello-world, alpine]
+        exclude:
+          - os: windows-latest
+            images: alpine
+        include:
+          - os: amd64/alpine
+            images: ubuntu:20.04
     runs-on: ${{ matrix.os }}
     steps:
       - name: Echo Docker Details
